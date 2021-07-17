@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <!-- button day and nigth  -->
+        <button class="box" id="box-day-nigth">
+            <span><i class="fas fa-sun"></i></span>
+			<span><i class="fas fa-moon"></i></span>
+        </button>
+    </div>
+    <!-- ----agresos y ingresos  -->
+    <div class="container-number">
+        <div class="container-row">
+        <span class="conetnt-total">Total Money: <span class="conetnt-total" id="Total">$5000</span></span>
+        <div class="table-results-e">Ingresos<span class="table-results-e" id="ingreso">5000</span></div>
+        <div class="table-results-i">Egresos<span class="table-results-i" id="egreso">5000</span></div>
+        </div>
+    </div>
+    <!-- --------table---- -->
+<form id="take-new" onsubmit="return false" class="style-form">
+    <select  id="type" class="add-type" >
+            <option value="ingreso" selected>+</option>
+            <option value="egreso">-</option>
+    </select>
+     <input type="text" class="add_description" placeholder="add description" id="descripcion">
+     <input type="number" class="add_value" placeholder="add value" id="valor" step="any">
+        <button class="add_button" onclick="addnewElement()">
+            <i class="far fa-check-circle"></i>
+        </button>
+</form>
+<!-- ----------------------------Tables  ------ -->
+<div class="container-number">
+    <!-- ingreso  -->
+<div class="container-ingresos">
+    <div class="ingresos-title">Ingresos</div>
+    <div id="list-ingreso"></div>
+    <!-- elemets -->
+      <div class="element-style">
+            <div class="Element-description">Salariooo</div>
+            <div class="element-value">+2200</div>
+            <button class="btn-delte"><i class="fas fa-times"></i></button>                        
+            </div>
+</div>
+<!-- ------egresos  -->
+<div class="container-Egresos">
+    <div class="Egreso-title">Ingresos</div>
+    <div class="list-egreso"></div>
+    <div class="element-style-e">
+            <div class="Element-description-e">Renta</div>
+            <div class="element-value-e">-2200</div>
+            <button class="btn-delte-e"><i class="fas fa-times"></i></button>                        
+            </div>
+</div>
+
+
+</div>
+
+    <script src="./js/crip.js"></script>
+</body>
+</html>

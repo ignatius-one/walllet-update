@@ -1,0 +1,202 @@
+@import 'part/header';
+@import 'style/normalize';
+
+$colorRed:#ae2012;
+$colorBlue:#005f73;
+$colorBlack:#001219;
+$colorWhite:#edf6f9;
+$colorgreen:#0ead69;
+// type font leatter 
+@mixin  letter-To-pagrapht ($color){
+    color: $color;
+    font-family: 1.1rem;
+}
+@mixin caja {
+    width: 50%;
+    padding-bottom: 2rem;
+    background-color: #d6e3e7;
+}
+@mixin tabla($color,$tcolor) {
+    padding: 2rem;
+    margin-top: 5px;
+    color: $color;
+    background-color: $tcolor;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 2rem;
+   
+    body.dark &{
+        color: $colorWhite;
+    }
+}
+@mixin titles {
+    font-size: 2.5rem;
+    color: $colorBlack;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+@mixin titles-tabla($color) {
+    font-size: 1.6rem;
+    color: $color;
+    text-align: center;
+}
+@mixin  tabla-plus-less($colorp) {
+    color: $colorp;
+    font-size: 1.8rem;
+    width: 50%;
+   
+}
+
+
+body{
+    background-color: $colorWhite;
+    color: $colorBlack;
+
+    // dark mode active 
+    transition: .5s ease all;
+    &.dark{
+        background-color: $colorBlack;
+        color: $colorWhite;
+    }
+}
+// -----boton truen on and tuen off 
+.box{
+    background-color: $colorBlack;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    // boton turn on 
+    &::after{
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background-color: $colorWhite;
+        top: 0;
+        left: 0;
+        right: unset;
+        border-radius: 100px;
+        transition: .3s ease all ;
+        box-shadow: 0px 0px 2px 2px rgba(0,0,0,.2);
+    }
+    &.active{
+        background-color: orange;
+        color: $colorBlack;
+        &::after{
+            right: 0;
+            left: unset;
+        }
+    }
+    span{
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        display: block;
+        background: none;
+        color: $colorWhite;
+    }
+
+}
+// ---------numeros panatalla 
+
+
+.container-number{
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: rgba(0,0,0,.2);
+}
+.container-row{
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+}
+.conetnt-total{
+    @include titles();
+     body.dark &{
+        color: $colorWhite;
+    }
+}
+
+.table-results-e{
+    @include tabla($colorBlack,$colorRed );
+ 
+}
+.table-results-i{
+    @include tabla($colorBlack,$colorBlue );
+ 
+}
+.style-form{
+    @include tabla($colorBlack,transparent );
+    input{
+        border-radius: 12px;
+        border: none;
+        box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+        :hover{
+            border-radius: 12px;
+            border: none;
+        }
+    }
+    
+}
+.add_button{
+    background-color: transparent;
+    border: none;
+    color: $colorgreen;
+    :active{
+     color: #ae2012;
+     padding: 4px;
+    }
+}
+.ingresos-title{
+    @include titles-tabla($colorBlue);
+}
+.container-ingresos{
+    @include tabla-plus-less($colorBlue);
+}
+.container-Egresos{
+    @include tabla-plus-less($colorRed);
+}
+.Egreso-title{
+    @include titles-tabla($colorRed);
+}
+
+// -------tablas de ingresos agregados  
+@mixin table-eg-ig {
+    width: 80%;
+    background-color: $colorWhite;
+    display: flex;
+    // flex-flow: column ;
+    border-radius: 12px;
+    justify-content: space-around;
+    margin: 10px auto;
+}
+// bonton 
+@mixin btn-hiden-show($color,$show){
+    color: $color;
+    border: none;
+    background-color: transparent;
+    transition: .3s ease all ;
+    display: $show;
+    
+}
+.element-style{
+    @include table-eg-ig();
+    .btn-delte{  @include btn-hiden-show($colorBlue,none);}
+}
+.element-style:hover .btn-delte{@include btn-hiden-show($colorBlue,block); }
+
+.element-style-e{
+    @include table-eg-ig();
+    .btn-delte-e{  @include btn-hiden-show($colorRed,none);}
+}
+.element-style-e:hover .btn-delte-e{@include btn-hiden-show($colorRed,block); }
+
