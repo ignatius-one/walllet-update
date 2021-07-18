@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="./style/style.css">
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<!-- when page load data too  -->
+<body onload="loadPage()">
     <div class="header">
         <!-- button day and nigth  -->
         <button class="box" id="box-day-nigth">
@@ -19,9 +20,9 @@
     <!-- ----agresos y ingresos  -->
     <div class="container-number">
         <div class="container-row">
-        <span class="conetnt-total">Total Money: <span class="conetnt-total" id="Total">$5000</span></span>
-        <div class="table-results-e">Ingresos<span class="table-results-e" id="ingreso">5000</span></div>
-        <div class="table-results-i">Egresos<span class="table-results-i" id="egreso">5000</span></div>
+        <span class="conetnt-total">Budget: <span class="conetnt-total" id="Budget">$5000</span></span>
+        <div class="table-results-e">Income<span class="table-results-e" id="income">5000</span></div>
+        <div class="table-results-i">Expenses<span class="table-results-i" id="expenses">5000</span></div>
         </div>
     </div>
     <!-- --------table---- -->
@@ -40,28 +41,29 @@
 <div class="container-number">
     <!-- ingreso  -->
 <div class="container-ingresos">
-    <div class="ingresos-title">Ingresos</div>
-    <div id="list-ingreso"></div>
+    <div class="ingresos-title">Income</div>
+    <div id="list-income"></div>
     <!-- elemets -->
-      <div class="element-style">
+      <!-- <div class="element-style">
             <div class="Element-description">Salariooo</div>
             <div class="element-value">+2200</div>
-            <button class="btn-delte"><i class="fas fa-times"></i></button>                        
-            </div>
+            <button class="btn-delte"><i class="fas fa-times" ></i></button>                        
+            </div> -->
 </div>
 <!-- ------egresos  -->
 <div class="container-Egresos">
-    <div class="Egreso-title">Ingresos</div>
-    <div class="list-egreso"></div>
-    <div class="element-style-e">
+    <div class="Egreso-title">Expenses</div>
+    <div class="list-Expenses"></div>
+    <!-- <div class="element-style-e">
             <div class="Element-description-e">Renta</div>
             <div class="element-value-e">-2200</div>
             <button class="btn-delte-e"><i class="fas fa-times"></i></button>                        
-            </div>
+            </div> -->
 </div>
 
 
 </div>
+
 
     <script src="./js/crip.js"></script>
 </body>

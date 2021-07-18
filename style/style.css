@@ -353,15 +353,13 @@ body {
     color: #edf6f9; }
 
 .container-number {
-  width: 100%;
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-bottom: 2rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  align-content: center;
-  background-color: rgba(0, 0, 0, 0.2); }
+  align-content: center; }
 
 .container-row {
   width: 50%;
@@ -376,44 +374,67 @@ body {
     color: #edf6f9; }
 
 .table-results-e {
-  padding: 2rem;
-  margin-top: 5px;
-  color: #001219;
-  background-color: #ae2012;
-  border-radius: 12px;
-  text-align: center;
-  font-size: 2rem; }
-  body.dark .table-results-e {
-    color: #edf6f9; }
-
-.table-results-i {
-  padding: 2rem;
+  padding: 1rem;
   margin-top: 5px;
   color: #001219;
   background-color: #005f73;
   border-radius: 12px;
   text-align: center;
-  font-size: 2rem; }
+  font-size: 2rem;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around; }
+  body.dark .table-results-e {
+    color: #edf6f9; }
+
+.table-results-i {
+  padding: 1rem;
+  margin-top: 5px;
+  color: #001219;
+  background-color: #ae2012;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around; }
   body.dark .table-results-i {
     color: #edf6f9; }
 
 .style-form {
-  padding: 2rem;
+  padding: 1rem;
   margin-top: 5px;
   color: #001219;
   background-color: transparent;
   border-radius: 12px;
   text-align: center;
-  font-size: 2rem; }
+  font-size: 2rem;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center; }
   body.dark .style-form {
     color: #edf6f9; }
+  @media (max-width: 850px) {
+    .style-form {
+      flex-flow: column wrap; } }
   .style-form input {
     border-radius: 12px;
     border: none;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); }
-    .style-form input :hover {
-      border-radius: 12px;
-      border: none; }
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    outline: none; }
+  .style-form select {
+    border-radius: 50px;
+    outline: none;
+    border: none; }
+    .style-form select option[value="ingreso"] {
+      color: #0ead69;
+      font-weight: bold; }
+    .style-form select option[value="egreso"] {
+      color: #ae2012;
+      font-weight: bold; }
+  .style-form select:hover {
+    outline: none;
+    border: none; }
 
 .add_button {
   background-color: transparent;
@@ -431,12 +452,20 @@ body {
 .container-ingresos {
   color: #005f73;
   font-size: 1.8rem;
-  width: 50%; }
+  width: 50%;
+  height: auto;
+  padding-bottom: 1.5rem;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.2); }
 
 .container-Egresos {
   color: #ae2012;
   font-size: 1.8rem;
-  width: 50%; }
+  width: 50%;
+  height: auto;
+  padding-bottom: 1.5rem;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.2); }
 
 .Egreso-title {
   font-size: 1.6rem;
@@ -449,20 +478,24 @@ body {
   display: flex;
   border-radius: 12px;
   justify-content: space-around;
-  margin: 10px auto; }
+  margin: 10px auto;
+  transition: .5s ease all; }
   .element-style .btn-delte {
     color: #005f73;
     border: none;
-    background-color: transparent;
-    transition: .3s ease all;
-    display: none; }
+    display: none;
+    background-color: transparent; }
+
+.element-style:hover {
+  background-color: rgba(240, 0, 0, 0.2); }
+  body.dark .element-style:hover {
+    color: #edf6f9; }
 
 .element-style:hover .btn-delte {
   color: #005f73;
   border: none;
-  background-color: transparent;
-  transition: .3s ease all;
-  display: block; }
+  display: block;
+  background-color: transparent; }
 
 .element-style-e {
   width: 80%;
@@ -470,17 +503,21 @@ body {
   display: flex;
   border-radius: 12px;
   justify-content: space-around;
-  margin: 10px auto; }
+  margin: 10px auto;
+  transition: .5s ease all; }
   .element-style-e .btn-delte-e {
     color: #ae2012;
     border: none;
-    background-color: transparent;
-    transition: .3s ease all;
-    display: none; }
+    display: none;
+    background-color: transparent; }
+
+.element-style-e:hover {
+  background-color: rgba(240, 0, 0, 0.2); }
+  body.dark .element-style-e:hover {
+    color: #edf6f9; }
 
 .element-style-e:hover .btn-delte-e {
   color: #ae2012;
   border: none;
-  background-color: transparent;
-  transition: .3s ease all;
-  display: block; }
+  display: block;
+  background-color: transparent; }

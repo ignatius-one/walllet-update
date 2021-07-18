@@ -16,15 +16,17 @@ $colorgreen:#0ead69;
     padding-bottom: 2rem;
     background-color: #d6e3e7;
 }
-@mixin tabla($color,$tcolor) {
-    padding: 2rem;
+@mixin tabla($color,$tcolor,$flex,$jutify) {
+    padding: 1rem;
     margin-top: 5px;
     color: $color;
     background-color: $tcolor;
     border-radius: 12px;
     text-align: center;
     font-size: 2rem;
-   
+    display: $flex;
+    flex-flow:  wrap;
+    justify-content: $jutify;
     body.dark &{
         color: $colorWhite;
     }
@@ -43,7 +45,10 @@ $colorgreen:#0ead69;
     color: $colorp;
     font-size: 1.8rem;
     width: 50%;
-   
+    height: auto;
+    padding-bottom: 1.5rem;
+    border-radius: 1rem;
+    background-color: rgba(0,0,0,.2);
 }
 
 
@@ -104,15 +109,13 @@ body{
 
 
 .container-number{
-    width: 100%;
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-bottom: 2rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
     align-content: center;
-    background-color: rgba(0,0,0,.2);
 }
 .container-row{
     width: 50%;
@@ -127,25 +130,36 @@ body{
 }
 
 .table-results-e{
-    @include tabla($colorBlack,$colorRed );
+    @include tabla($colorBlack,$colorBlue,flex,space-around );
  
 }
 .table-results-i{
-    @include tabla($colorBlack,$colorBlue );
- 
+    @include tabla($colorBlack,$colorRed,flex,space-around );
 }
 .style-form{
-    @include tabla($colorBlack,transparent );
-    input{
+@include tabla($colorBlack,transparent ,flex ,center );
+@media (max-width: 850px){
+    flex-flow:column wrap ;
+}
+input{
         border-radius: 12px;
         border: none;
         box-shadow: 2px 2px 5px rgba(0,0,0,.5);
-        :hover{
-            border-radius: 12px;
-            border: none;
+        outline: none;
+    }
+    select{border-radius: 50px;
+        outline: none;
+        border: none;
+        option[value="ingreso"]{
+            color: $colorgreen;
+            font-weight: bold;
+        }
+        option[value="egreso"]{
+            color: $colorRed;
+            font-weight: bold;
         }
     }
-    
+    select:hover{outline: none; border: none;}
 }
 .add_button{
     background-color: transparent;
@@ -183,20 +197,28 @@ body{
 @mixin btn-hiden-show($color,$show){
     color: $color;
     border: none;
-    background-color: transparent;
-    transition: .3s ease all ;
     display: $show;
-    
+    background-color: transparent;
 }
+// boton-blue ---- --------------------------------
 .element-style{
     @include table-eg-ig();
+    transition: .5s ease all;
     .btn-delte{  @include btn-hiden-show($colorBlue,none);}
 }
-.element-style:hover .btn-delte{@include btn-hiden-show($colorBlue,block); }
-
+.element-style:hover {background-color: rgba(240, 0, 0, 0.2);
+body.dark &{color: $colorWhite;}
+}
+.element-style:hover .btn-delte{@include btn-hiden-show($colorBlue,block);}
+// boton-delte ---------------------------------------------- 
 .element-style-e{
     @include table-eg-ig();
+    transition: .5s ease all;
     .btn-delte-e{  @include btn-hiden-show($colorRed,none);}
 }
+.element-style-e:hover {background-color: rgba(240, 0, 0, 0.2);
+body.dark &{color: $colorWhite;}
+}
 .element-style-e:hover .btn-delte-e{@include btn-hiden-show($colorRed,block); }
+
 
