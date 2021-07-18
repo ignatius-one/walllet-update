@@ -48,13 +48,11 @@ class Income extends Data{
 }
 // ------------ const income ----- 
 const income = [
-    new Income('ventas', 899),
-    new Income('ventas', 667)
+   
 ]
 // ----------- const Expenses 
 const expenses = [
-    new Expenses('food', 567),
-    new Expenses('agua', 267)
+   
 ]
 // -----------load information inside HTML 
 let loadPage = () => {
@@ -154,17 +152,18 @@ const DelteExpenses = (id)=>{
 
 // ------ add new elements here  
 const addnewElement = () => {
-    let form = document.forms['take-new']
-    let type = form['type']
-    let description = form['description']
-    let value = form['value']
-    if (description.value !== '' && value.value !== '') {
-        if (type.value == 'income') {
-            income.push(new income(description.value, +value.value))
+    let formu = document.forms['take-new']
+    let TypeV = formu['typeValue']
+    let DesV = formu['DescriptionV']
+    let valueNP = formu['ValueV']
+
+    if (DesV.value !== '' && valueNP.value !== '') {
+        if (TypeV.value == 'income') {
+            income.push(new Income(DesV.value, valueNP.value))
             loadInfo()
             Loadincome()
-        }else if (type.value == 'expenses') {
-            expenses.push(new expenses(description.value, +value.value))
+        }else if (TypeV.value == 'expenses') {
+            expenses.push(new Expenses(DesV.value, valueNP.value))
             loadInfo()
             LoadExpenses()
         }
