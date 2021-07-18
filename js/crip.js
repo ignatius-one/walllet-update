@@ -61,7 +61,6 @@ let loadPage = () => {
     loadInfo()
     Loadincome()
     LoadExpenses()
-
 }
 // ----------- total income  ---- 
 let Totalincome = () => {
@@ -91,6 +90,9 @@ let loadInfo = () => {
 const formatCurrency = (value) => {
    return value.toLocaleString('en-US',{style:'currency',currency:'USD',minmumFractionDigits:2})
 }
+
+
+
 // ------ load incomes --------
 const Loadincome = () => {
     let incomeHtml = ''
@@ -103,10 +105,10 @@ const Loadincome = () => {
 const AddIncome = (incomeH) => {
     let incomeHTML = `
     <div class="element-style">
-            <div class="Element-description">${incomeH.description}</div>
-            <div class="element-value">+${formatCurrency(incomeH.value)}</div>
-            <button class="btn-delte"><i class="fas fa-times" onclick="DelteIncome(${incomeH.Id})"></i></button>                        
-            </div>
+        <div class="Element-description">${incomeH.description}</div>
+        <div class="element-value">+${formatCurrency(incomeH.value)}</div>
+        <button class="btn-delte"><i class="fas fa-times" onclick="DelteIncome(${incomeH.Id})"></i></button>                        
+        </div>
     `
     return incomeHTML
 }
@@ -117,6 +119,9 @@ const DelteIncome = (id)=>{
     loadInfo()
     Loadincome()
 }
+
+
+
 
 
 // ------ load expenses --------
@@ -132,7 +137,7 @@ const AddExpenses = (valuesexpense) => {
     let Expeseshtml = `
     <div class="element-style-e">
             <div class="Element-description-e">${valuesexpense.description}</div>
-            <div class="element-value-e">${valuesexpense.value}</div>
+            <div class="element-value-e">-$${valuesexpense.value}</div>
             <button class="btn-delte-e"><i class="fas fa-times" onclick="DelteExpenses(${valuesexpense.Id})"></i></button>                        
      </div>
     `
@@ -144,4 +149,24 @@ const DelteExpenses = (id)=>{
     expenses.splice(indexexpenses, 1)
     loadInfo()
     LoadExpenses()
+}
+
+
+// ------ add new elements here  
+const addnewElement = () => {
+    let form = document.forms['take-new']
+    let type = form['type']
+    let description = form['description']
+    let value = form['value']
+    if (description.value !== '' && value.value !== '') {
+        if (type.value == 'income') {
+            income.push(new income(description.value, +value.value))
+            loadInfo()
+            Loadincome()
+        }else if (type.value == 'expenses') {
+            expenses.push(new expenses(description.value, +value.value))
+            loadInfo()
+            LoadExpenses()
+        }
+    }
 }
